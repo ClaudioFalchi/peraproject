@@ -6,12 +6,18 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CartComponent
+    CartComponent,
+    LoginComponent,
+    RegisterComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
