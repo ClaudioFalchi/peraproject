@@ -19,11 +19,5 @@ export class CheckoutComponent {
 
   constructor(private fb: FormBuilder) {}
 
-  onSubmit() {
-    this.submitted = true;
-    if (this.checkoutForm.valid) {
-      // Qui puoi gestire l'invio dei dati
-      alert('Ordine inviato!');
-    }
-  }
+  
 }

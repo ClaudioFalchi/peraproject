@@ -1,0 +1,77 @@
+<router-outlet></router-outlet>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="">
+      <img src="assets/images/PeraPhone-logo.jpg" alt="PeraPhone-logo" class="logo" >
+    </a>
+  </div>
+</nav>
+  <div class="container-fluid">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cart">Carrello</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Registrati</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- order-confirmation.component.html -->
+
+<div class="container-fluid bg-light min-vh-100 py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <!-- Card di conferma -->
+        <div class="card shadow-lg border-0 rounded-4">
+          <div class="card-body p-5 text-center">
+            
+            <!-- Icona di successo -->
+            <div class="mb-4">
+              <div class="rounded-circle bg-success d-inline-flex align-items-center justify-content-center" 
+                   style="width: 80px; height: 80px;">
+                <i class="bi bi-check-lg text-white" style="font-size: 2.5rem;"></i>
+              </div>
+            </div>
+
+            <!-- Titolo principale -->
+            <h1 class="h2 text-success fw-bold mb-3">
+              Ordine Spedito!
+            </h1>
+
+            <!-- Messaggio principale -->
+            <p class="lead text-muted mb-4">
+              Il tuo ordine è stato spedito e arriverà entro 3-5 giorni lavorativi.
+            </p>
+
+            <!-- Bottone per navigare alla home -->
+            <button class="btn btn-success btn-lg" href="/">Torna alla Home</button>
+
+            <!-- Notifica successiva -->
+            <ngb-alert [type]="'success'" class="mt-4">
+              Grazie per aver acquistato da noi! Stiamo preparando il tuo ordine per la consegna.
+            </ngb-alert>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

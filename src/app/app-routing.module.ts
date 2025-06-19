@@ -5,13 +5,16 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent} from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ConfirmOrdineComponent } from './confirm-ordine/confirm-ordine.component';
+
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
   {path:'cart', component: CartComponent},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
-  {path:'checkout', component:CheckoutComponent}
+  {path:'checkout', component:CheckoutComponent},
+  {path: 'confirm-ordine', component: ConfirmOrdineComponent },
 ];
 
 @NgModule({
