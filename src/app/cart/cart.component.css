@@ -1,0 +1,18 @@
+/* cart.component.css */
+.gray-box {
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  padding: 40px;
+  margin-bottom: 30px;
+  border: 1px solid #dee2e6;
+  min-height: 200px;
+}
+
+.page-title {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.btn-custom {
+  min-width: 180px;
+}
