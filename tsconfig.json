@@ -25,15 +25,9 @@
     ]
   },
   "angularCompilerOptions": {
-    "enableIvy": true,
-    "strictTemplates": true,
+    "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictContextGenerics": true,
-    "strictNullInputTypes": true,
-    "strictOutputEventTypes": true,
-    "_enableMixins": true,
-    "strictDomLocalRefTypes": true,
-    "strictDomEventTypes": true
+    "strictTemplates": true
   }
 }
