@@ -1,24 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CheckoutComponent } from './checkout/checkout.component';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
-import { LoginComponent} from './login/login.component';
+import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { CheckoutComponent } from './checkout/checkout.component';
 import { ConfirmOrdineComponent } from './confirm-ordine/confirm-ordine.component';
 
 
 const routes: Routes = [
-  {path:'', component: HomeComponent},
-  {path:'cart', component: CartComponent},
-  {path:'login', component:LoginComponent},
-  {path:'register', component:RegisterComponent},
-  {path:'checkout', component:CheckoutComponent},
-  {path: 'confirm-ordine', component: ConfirmOrdineComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },  // Redirect root a /home
+  { path: 'home', component: HomeComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'confirm-order', component: ConfirmOrdineComponent },
+
+
+  // Wildcard: qualsiasi altro percorso redirect a /home
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

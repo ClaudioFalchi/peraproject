@@ -1,162 +1,155 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - Dati di Spedizione</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- NG Bootstrap -->
-    <link href="https://unpkg.com/@ng-bootstrap/ng-bootstrap@latest/ng-bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
 
-    <!-- Checkout Container -->
-    <div class="container py-4">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <h1 class="text-center mb-4">Checkout</h1>
-                
-                <!-- Dati di Spedizione -->
-                <div class="card shadow-sm mb-4">
-                    <div class="card-header bg-dark text-white">
-                        <h2 class="h5 mb-0">Dati di Spedizione</h2>
-                    </div>
-                    <div class="card-body">
-                        <form id="checkout-form">
-                            <!-- Nome e Cognome -->
-                            <div class="row mb-3">
-                                <div class="col-md-6 mb-3 mb-md-0">
-                                    <label class="form-label">Nome*</label>
-                                    <input type="text" class="form-control" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Cognome*</label>
-                                    <input type="text" class="form-control" required>
-                                </div>
-                            </div>
-                            
-                            <!-- Indirizzo -->
-                            <div class="mb-3">
-                                <label class="form-label">Indirizzo (Via e Civico)*</label>
-                                <input type="text" class="form-control" required>
-                            </div>
-                            
-                            <!-- Città e CAP -->
-                            <div class="row mb-3">
-                                <div class="col-md-6 mb-3 mb-md-0">
-                                    <label class="form-label">Città*</label>
-                                    <input type="text" class="form-control" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">CAP*</label>
-                                    <input type="text" class="form-control" pattern="\d{5}" required>
-                                    <small class="text-muted">Inserisci 5 cifre</small>
-                                </div>
-                            </div>
-                            
-                            <!-- Email e Telefono -->
-                            <div class="row mb-4">
-                                <div class="col-md-6 mb-3 mb-md-0">
-                                    <label class="form-label">Email*</label>
-                                    <input type="email" class="form-control" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Telefono*</label>
-                                    <input type="tel" class="form-control" required>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+      <h1 class="text-center mb-4">Checkout</h1>
 
-                <!-- Dati di Pagamento  -->
-                <div class="card shadow-sm mb-4">
-                    <div class="card-header bg-dark text-white">
-                        <h2 class="h5 mb-0">Dati di Pagamento</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <label class="form-label">Numero Carta di Credito*</label>
-                            <input type="text" class="form-control" placeholder="1234 5678 9012 3456" required>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6 mb-3 mb-md-0">
-                                <label class="form-label">Nome sulla Carta*</label>
-                                <input type="text" class="form-control" required>
-                            </div>
-                            <div class="col-md-3">
-                                <label class="form-label">Scadenza*</label>
-                                <input type="text" class="form-control" placeholder="MM/AA" required>
-                            </div>
-                            <div class="col-md-3">
-                                <label class="form-label">CVV*</label>
-                                <input type="text" class="form-control" placeholder="123" required>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" novalidate>
 
-                <!-- Totale e Conferma -->
-                <div class="d-flex justify-content-end mb-4">
-                    <div class="bg-light p-3 rounded">
-                        <span class="fw-bold fs-5">TOTALE (iva inclusa) € </span>
-                        <span class="fw-bold fs-5" id="total-price">0,00</span>
-                    </div>
+        <!-- Dati di Spedizione -->
+        <div class="card shadow-sm mb-4">
+          <div class="card-header bg-dark text-white">
+            <h2 class="h5 mb-0">Dati di Spedizione</h2>
+          </div>
+          <div class="card-body">
+
+            <!-- Nome e Cognome -->
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Nome*</label>
+                <input type="text" formControlName="nome" class="form-control" [class.is-invalid]="f['nome'].touched && f['nome'].invalid" />
+                <div *ngIf="f['nome'].touched && f['nome'].invalid" class="invalid-feedback">
+                  Inserisci un nome valido (min 2 caratteri).
                 </div>
-                
-                <!-- Pulsanti di Azione -->
-                <div class="d-flex justify-content-between align-items-center">
-                    <!-- Pulsante Torna al Carrello -->
-                    <a href="/cart" class="btn btn-outline-secondary btn-lg">
-                        <i class="bi bi-arrow-left me-2"></i>
-                        Torna al Carrello
-                    </a>
-                    
-                    <a href="/confirm-ordine" class="btn btn-success btn-lg px-4" style="background-color: #28a745; color: white;">
-                    <i class="bi bi-check-circle me-2"></i>
-                    Conferma Ordine
-                    </a>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Cognome*</label>
+                <input type="text" formControlName="cognome" class="form-control" [class.is-invalid]="f['cognome'].touched && f['cognome'].invalid" />
+                <div *ngIf="f['cognome'].touched && f['cognome'].invalid" class="invalid-feedback">
+                  Inserisci un cognome valido (min 2 caratteri).
                 </div>
-                
+              </div>
             </div>
+
+            <!-- Indirizzo -->
+            <div class="mb-3">
+              <label class="form-label">Indirizzo (Via e Civico)*</label>
+              <input type="text" formControlName="indirizzo" class="form-control" [class.is-invalid]="f['indirizzo'].touched && f['indirizzo'].invalid" />
+              <div *ngIf="f['indirizzo'].touched && f['indirizzo'].invalid" class="invalid-feedback">
+                Inserisci un indirizzo valido.
+              </div>
+            </div>
+
+            <!-- Città e CAP -->
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Città*</label>
+                <input type="text" formControlName="citta" class="form-control" [class.is-invalid]="f['citta'].touched && f['citta'].invalid" />
+                <div *ngIf="f['citta'].touched && f['citta'].invalid" class="invalid-feedback">
+                  Inserisci una città valida.
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">CAP*</label>
+                <input type="text" formControlName="cap" maxlength="5" class="form-control" [class.is-invalid]="f['cap'].touched && f['cap'].invalid" />
+                <div *ngIf="f['cap'].touched && f['cap'].invalid" class="invalid-feedback">
+                  Il CAP deve contenere 5 cifre.
+                </div>
+              </div>
+            </div>
+
+            <!-- Email e Telefono -->
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <label class="form-label">Email*</label>
+                <input type="email" formControlName="email" class="form-control" [class.is-invalid]="f['email'].touched && f['email'].invalid" />
+                <div *ngIf="f['email'].touched && f['email'].invalid" class="invalid-feedback">
+                  Inserisci un'email valida.
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Telefono*</label>
+                <input type="tel" formControlName="telefono" class="form-control" [class.is-invalid]="f['telefono'].touched && f['telefono'].invalid" />
+                <div *ngIf="f['telefono'].touched && f['telefono'].invalid" class="invalid-feedback">
+                  Inserisci un numero di telefono valido (solo cifre, 6-15 caratteri).
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
+
+        <!-- Dati di Pagamento -->
+        <div class="card shadow-sm mb-4">
+          <div class="card-header bg-dark text-white">
+            <h2 class="h5 mb-0">Dati di Pagamento</h2>
+          </div>
+          <div class="card-body">
+
+            <div class="mb-3">
+              <label class="form-label">Numero Carta di Credito*</label>
+              <input type="text" formControlName="numeroCarta" maxlength="19" placeholder="1234 5678 9012 3456"
+                class="form-control" [class.is-invalid]="f['numeroCarta'].touched && f['numeroCarta'].invalid" />
+              <div *ngIf="f['numeroCarta'].touched && f['numeroCarta'].invalid" class="invalid-feedback">
+                Inserisci un numero carta valido (16 cifre).
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Nome sulla Carta*</label>
+                <input type="text" formControlName="nomeCarta" class="form-control" [class.is-invalid]="f['nomeCarta'].touched && f['nomeCarta'].invalid" />
+                <div *ngIf="f['nomeCarta'].touched && f['nomeCarta'].invalid" class="invalid-feedback">
+                  Inserisci il nome presente sulla carta.
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">Scadenza (MM/AA)*</label>
+                <input type="text" formControlName="scadenza" maxlength="5" placeholder="MM/AA"
+                  class="form-control" [class.is-invalid]="f['scadenza'].touched && f['scadenza'].invalid" />
+                <div *ngIf="f['scadenza'].touched && f['scadenza'].invalid" class="invalid-feedback">
+                  Inserisci una data di scadenza valida (MM/AA).
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label class="form-label">CVV*</label>
+                <input type="text" formControlName="cvv" maxlength="4" placeholder="123"
+                  class="form-control" [class.is-invalid]="f['cvv'].touched && f['cvv'].invalid" />
+                <div *ngIf="f['cvv'].touched && f['cvv'].invalid" class="invalid-feedback">
+                  Inserisci un CVV valido (3 o 4 cifre).
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TOTALE e PULSANTE -->
+        <div *ngIf="totalPrice > 0">
+          <div class="d-flex justify-content-end mb-4">
+            <div class="bg-light p-3 rounded">
+              <span class="fw-bold fs-5">TOTALE (iva inclusa) € </span>
+              <span class="fw-bold fs-5">{{ totalPrice | number:'1.2-2' }}</span>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <a routerLink="/cart" class="btn btn-outline-secondary btn-lg">
+              <i class="bi bi-arrow-left me-2"></i> Torna al Carrello
+            </a>
+
+            <button type="submit" class="btn btn-success btn-lg px-4">
+              <i class="bi bi-check-circle me-2"></i> Conferma Ordine
+            </button>
+          </div>
+        </div>
+
+        <!-- Carrello Vuoto -->
+        <div *ngIf="totalPrice === 0" class="alert alert-info text-center mt-4">
+          Il tuo carrello è vuoto. <a routerLink="/cart">Vai al carrello</a>
+        </div>
+
+      </form>
     </div>
-
-
-
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- NG Bootstrap JS -->
-    <script src="https://unpkg.com/@ng-bootstrap/ng-bootstrap@latest/ng-bootstrap.min.js"></script>
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-
-    <script>
-        // Formattazione automatica del numero di carta
-        document.querySelector('input[placeholder="1234 5678 9012 3456"]').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
-            if (value.length > 0) {
-                value = value.match(new RegExp('.{1,4}', 'g')).join(' ');
-            }
-            e.target.value = value;
-        });
-
-        // Formattazione automatica della data di scadenza
-        document.querySelector('input[placeholder="MM/AA"]').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length >= 3) {
-                value = value.substring(0, 2) + '/' + value.substring(2, 4);
-            }
-            e.target.value = value;
-        });
-
-        
-      
-
-        
-    </script>
-
-</body>
-</html>
+  </div>
+</div>

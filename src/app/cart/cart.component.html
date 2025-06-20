@@ -1,26 +1,27 @@
-<!-- cart.component.html -->
 <div class="container mt-5">
-  <h1 class="fw-bold fs-1">Carrello</h1>
+  <h1 class="fw-bold fs-1">Carrello 🛒</h1>
   <h3 class="fw-bold fs-4 mb-4">I tuoi prodotti</h3>
 
-  <!-- Box prodotti -->
-  <div class="gray-box">
+  <!-- Se il carrello è vuoto -->
+  <div *ngIf="carrello.length === 0" class="gray-box">
     <p class="text-muted">Nessun prodotto nel carrello.</p>
+  </div>
+
+  <!-- Se il carrello ha prodotti -->
+  <div *ngIf="carrello.length > 0" class="mb-4">
+    <div *ngFor="let prodotto of carrello" class="card mb-3">
+      <div class="card-body d-flex justify-content-between align-items-center">
+        <div>
+          <h5 class="card-title mb-1">{{ prodotto.nome }}</h5>
+          <small class="text-muted">Quantità: {{ prodotto.quantita }}</small>
+        </div>
+        <h5 class="text-end mb-0">€ {{ (prodotto.prezzo * prodotto.quantita) | number:'1.2-2' }}</h5>
+      </div>
+    </div>
   </div>
 
   <!-- Totale -->
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h5 class="mb-0">Totale (IVA inclusa):</h5>
-    <h5 class="text-primary mb-0">€ <span id="total-price">0,00</span></h5>
+    <h5 class="text-primary mb-0">€ {{ totalPrice | number:'1.2-2' }}</h5>
   </div>
-
-  <!-- Pulsanti -->
-  <div class="d-flex gap-3">
-    <a [routerLink]="['']" class="btn btn-outline-secondary btn-custom">
-      <i class="bi bi-arrow-left"></i> Torna alla Home
-    </a>
-    <a [routerLink]="['/checkout']" class="btn btn-primary btn-custom">
-      Vai al pagamento <i class="bi bi-credit-card-2-front ms-1"></i>
-    </a>
-  </div>
-</div>

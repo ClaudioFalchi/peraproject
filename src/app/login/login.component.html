@@ -1,0 +1,55 @@
+<div class="container mt-5" style="max-width: 400px;">
+  <div class="card shadow p-4">
+    <h3 class="text-center mb-4">Accedi</h3>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="form-control"
+          [class.is-invalid]="submitted && f['email'].invalid"
+        />
+        <div class="invalid-feedback" *ngIf="submitted && f['email'].errors">
+          <div *ngIf="f['email'].errors?.['required']">Email obbligatoria.</div>
+          <div *ngIf="f['email'].errors?.['email']">Formato email non valido.</div>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          class="form-control"
+          [class.is-invalid]="submitted && f['password'].invalid"
+        />
+        <div class="invalid-feedback" *ngIf="submitted && f['password'].errors">
+          <div *ngIf="f['password'].errors?.['required']">Password obbligatoria.</div>
+          <div *ngIf="f['password'].errors?.['minlength']">Minimo 6 caratteri.</div>
+        </div>
+      </div>
+
+      <!-- Recupero password -->
+      <div class="mb-3">
+        <small class="text-muted">
+          Per recupero password scrivere a 
+          <a href="mailto:recuperapassword&#64;peraphone.it">recuperapassword&#64;peraphone.it</a>
+        </small>
+      </div>
+
+      <!-- Pulsante di accesso -->
+      <button type="submit" class="btn btn-dark w-100">Accedi</button>
+    </form>
+
+    <!-- Messaggio errore -->
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  </div>
+</div>
