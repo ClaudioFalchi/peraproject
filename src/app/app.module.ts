@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ConfirmOrdineComponent } from './confirm-ordine/confirm-ordine.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ShopComponent } from './shop/shop.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     CheckoutComponent,
     ConfirmOrdineComponent,
     NavbarComponent,
-    RegisterComponent
+    RegisterComponent,
+    ShopComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ConfirmOrdineComponent } from './confirm-ordine/confirm-ordine.component';
+import { ShopComponent } from './shop/shop.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'confirm-order', component: ConfirmOrdineComponent },
+  { path: 'shop', component: ShopComponent },
 
 
   // Wildcard: qualsiasi altro percorso redirect a /home
