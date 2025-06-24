@@ -1,3 +1,43 @@
-<a> </a>
-<p> Vanno messe le card con i prodotti e una breve descrizione, cliccandoci vai sul dettaglio prodotto e li potrai aggiungere al carello, dovremmo creare n compinenti in base ai prodotti</p>
-<router-outlet></router-outlet>
+<div class="container my-5">
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let product of products">
+      <div class="card h-100 shadow-sm text-center">
+        <!-- immagine in alto -->
+        <img
+          [src]="product.imageUrl"
+          [alt]="product.title"
+          class="card-img-top p-3"
+          style="height: 200px; object-fit: contain;"
+        />
+
+        <!-- corpo card -->
+        <div class="card-body d-flex flex-column">
+          <!-- titolo -->
+          <h5 class="card-title fw-bold mb-2">{{ product.title }}</h5>
+
+          <!-- descrizione caratteristiche -->
+          <div class="card-text text-secondary mb-2" [innerHTML]="product.description"></div>
+
+          <!-- prezzo -->
+          <div class="text-success fs-4 fw-semibold mb-2">€ {{ product.price.toFixed(2) }}</div>
+
+          <!-- disponibilità -->
+          <small class="text-muted mb-3">Disponibili: {{ product.availableQty }}</small>
+
+          <!-- quantità + bottone in basso -->
+          <div class="mt-auto d-flex align-items-center gap-2">
+            <input
+              type="number"
+              [(ngModel)]="product.orderQty"
+              min="1"
+              [max]="product.availableQty"
+              class="form-control form-control-sm w-50"
+              aria-label="Quantità da ordinare"
+            />
+            <button class="btn btn-success btn-sm flex-grow-1" (click)="onBuy(product)">Acquista</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
