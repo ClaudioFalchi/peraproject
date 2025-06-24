@@ -92,7 +92,7 @@ export class ShopComponent {
       orderQty: 1
     },
     {
-      imageUrl: 'assets/images/Caricatore.png',
+      imageUrl: 'assets/images/Caricatore2.png',
       title: 'PeraCharger 65W',
       description: `
         <ul>
