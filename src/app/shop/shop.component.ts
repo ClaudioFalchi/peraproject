@@ -17,7 +17,7 @@ interface Product {
 export class ShopComponent {
   products: Product[] = [
     {
-      imageUrl: 'assets/images/Peraphone1.png',
+      imageUrl: 'assets/images/Peraphone1-prodotti.png',
       title: 'PeraPhone Lite',
       description: `
         <ul>
@@ -32,7 +32,7 @@ export class ShopComponent {
       orderQty: 1
     },
     {
-      imageUrl: 'assets/images/Peraphone2.png',
+      imageUrl: 'assets/images/Peraphone2-prodotti.png',
       title: 'PeraPhone Air',
       description: `
         <ul>
@@ -47,7 +47,7 @@ export class ShopComponent {
       orderQty: 1
     },
     {
-      imageUrl: 'assets/images/Peraphone3.png',
+      imageUrl: 'assets/images/Peraphone3-prodotti.png',
       title: 'PeraPhone Pro',
       description: `
         <ul>
@@ -62,7 +62,7 @@ export class ShopComponent {
       orderQty: 1
     },
     {
-      imageUrl: 'assets/images/Perabuds.png',
+      imageUrl: 'assets/images/Perabuds2.png',
       title: 'PeraPods',
       description: `
         <ul>
@@ -77,7 +77,7 @@ export class ShopComponent {
       orderQty: 1
     },
     {
-      imageUrl: 'assets/images/Perawatch.png',
+      imageUrl: 'assets/images/PeraWatch2.png',
       title: 'PeraWatch',
       description: `
         <ul>
@@ -106,7 +106,7 @@ export class ShopComponent {
       orderQty: 1
     },
     {
-      imageUrl: 'assets/images/Peraphones.png',
+      imageUrl: 'assets/images/Peraphones2.png',
       title: 'Peraphones',
       description: `
         <ul>
