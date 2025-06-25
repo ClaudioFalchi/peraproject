@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="text-center mt-4">
-    <a href="/shop" class="text-white fw-bold text-decoration-underline">SCOPRI DI PIÙ SULLA TECNOLOGIA PERAPHONE</a>
+    <a href="/shop" class="text-white fw-bold text-decoration-underline">VAI ALLA SEZIONE PRODOTTI</a>
   </div>
 </div>
 
@@ -42,8 +42,8 @@
       <div class="container">
         <div class="row gx-5 justify-content-center">
           <!-- 📦 Inizio Card -->
-          <div class="col-md-3 " *ngFor="let item of items.slice(0,3)">
-            <div class="card ">
+          <div class="col-3 " *ngFor="let item of items.slice(0,3)">
+            <div class="card h-100 center-text">
               <img src="{{ item.img }}" class="card-img-top" alt="Peraphone">
               <div class="card-body">
                 <h5 class="card-title">{{ item.title }}</h5>
@@ -61,8 +61,8 @@
     <div class="carousel-item">
       <div class="container">
         <div class="row gx-5">
-          <div class="col-md-3" *ngFor="let item of items.slice(3,7)">
-            <div class="card ">
+          <div class="col-3" *ngFor="let item of items.slice(3,7)">
+            <div class="card h-100 center-text">
               <img src="{{ item.img }}" class="card-img-top" alt="Peraphone">
               <div class="card-body">
                 <h5 class="card-title">{{ item.title }}</h5>

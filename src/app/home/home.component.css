@@ -21,3 +21,7 @@
 .carousel-control-prev-icon.custom-arrow {
   transform: rotate(135deg);
 }
+
+.center-text {
+  text-align: center;
+}
