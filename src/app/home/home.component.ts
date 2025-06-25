@@ -8,6 +8,15 @@ import { Component } from '@angular/core';
 
 export class HomeComponent {
   images=[4]
+  items = [
+  { img: 'assets/images/Peraphone1.png', title: 'Modello 1', desc: 'Descrizione 1' },
+  { img: 'assets/images/Peraphone2.png', title: 'Modello 2', desc: 'Descrizione 2' },
+  { img: 'assets/images/Peraphone3.png', title: 'Modello 3', desc: 'Descrizione 3' },
+  { img: 'assets/images/Caricatore.png', title: 'Modello 4', desc: 'Descrizione 4' },
+  { img: 'assets/images/Perabuds.png', title: 'Modello 5', desc: 'Descrizione 5' },
+  { img: 'assets/images/Perawatch.png', title: 'Modello 6', desc: 'Descrizione 6' },
+  { img: 'assets/images/Peraphones.png', title: 'Modello 7', desc: 'Descrizione 7' }
+];
 }
 export class ShopComponent {
   prodotti = [

@@ -31,93 +31,65 @@
   </div>
 </div>
  <!-- HERO SECTION -->
+  <br>
 
-<!-- CAROUSEL SECTION -->
-<div id="carouselPeraphone" class="carousel slide mt-5" data-bs-ride="carousel">
+ <!-- 🔁 Inizio Carousel -->
+<div id="peraphoneCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
-    <!-- SLIDE 1 -->
-    <!-- CARD 1 -->
-    <div id="carouselPeraphone" class="carousel slide mt-5" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <!-- SLIDE 1 -->
-    <div class="carousel-item active"> <!-- Solo il primo item è active -->
-      <div class="d-flex justify-content-center gap-5 p-4 flex-wrap">
-        <!-- Card 1 -->
-        <div class="card" style="width: 20rem; margin-left:4rem; margin-right:4rem;">
-          <img src="assets/images/Peraphone1.png" class="card-img-top" alt="Camera">
-          <div class="card-body text-center">
-            <h5 class="card-title fw-bold ">PERAPHONE LITE</h5>
-            <p class="card-text">Doppia fotocamera posteriore (principale da 12 MP + profondità da 2 MP), Flash LED, ricarica standard via USB-C (nessuna ricarica wireless), memoria di di archiviazione interna 64 GB e 4 GB di RAM</p>
-          </div>
-        </div>
 
-        <!-- Card 2 -->
-        <div class="card" style="width: 20rem; margin-right:4rem; margin-left:4rem ">
-          <img src="assets/images/Peraphone3.png" class="card-img-top" alt="Altro">
-          <div class="card-body text-center">
-            <h5 class="card-title fw-bold ">PERAPHONE PRO</h5>
-            <p class="card-text">Tripla fotocamera con sensore principale da 64 MP + ultra-grandangolare 12 MP + teleobiettivo 8 MP, registrazione video 8K, Ricarica rapida da 65W + ricarica wireless, memoria di archiviazione di 256 GB e 12GB di RAM</p>
+    <!-- ⭐ Inizio Slide 1 -->
+    <div class="carousel-item active">
+      <div class="container">
+        <div class="row gx-5 justify-content-center">
+          <!-- 📦 Inizio Card -->
+          <div class="col-md-3 " *ngFor="let item of items.slice(0,3)">
+            <div class="card ">
+              <img src="{{ item.img }}" class="card-img-top" alt="Peraphone">
+              <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <p class="card-text">{{ item.desc }}</p>
+              </div>
+            </div>
           </div>
+          <!-- 📦 Fine Card -->
         </div>
+      </div>
+    </div>
+    <!-- ⭐ Fine Slide 1 -->
 
-        <!-- Card 3 -->
-        <div class="card" style="width: 20rem; margin-right:4rem; margin-left:4rem">
-          <img src="assets/images/Peraphone2.png" class="card-img-top" alt="Altro">
-          <div class="card-body text-center">
-            <h5 class="card-title fw-bold ">PERAPHONE AIR</h5>
-            <p class="card-text">Tripla fotocamera posteriore (principale 48 MP + ultra-grandangolare 8 MP + macro 2 MP), flash LED, supporta modalità notturna e video in 4K, ricarica rapida da 25W, memoria di archiviazione di 128 GB e 6 GB di RAM</p>
+    <!-- ⭐ Inizio Slide 2 -->
+    <div class="carousel-item">
+      <div class="container">
+        <div class="row gx-5">
+          <div class="col-md-3" *ngFor="let item of items.slice(3,7)">
+            <div class="card ">
+              <img src="{{ item.img }}" class="card-img-top" alt="Peraphone">
+              <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <p class="card-text">{{ item.desc }}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- ⭐ Fine Slide 2 -->
 
-    <!-- SLIDE 2 -->
-    <div class="carousel-item"> <!-- Rimossa la classe active -->
-      <div class="d-flex justify-content-center gap-5 p-4 flex-wrap">
-        <!-- Card 1 -->
-        <div class="card" style="width: 20rem; margin-right:4rem">
-          <img src="assets/images/Caricatore.png" class="card-img-top" alt="Camera">
-          <div class="card-body text-center">
-            <h5 class="card-title fw-bold">PERACHARGER</h5>
-            <p class="card-text">Da un lato si notano delle luci LED che indicano il livello di carica residua del dispositivo, dall'altra sono visibili diverse porte USB. È l'accessorio perfetto per chi è spesso in movimento e ha bisogno di una fonte di energia affidabile per non rimanere mai a corto di batteria.</p>
-          </div>
-        </div>
+    <!-- Aggiungi altre slide simili se hai più di 8 elementi -->
 
-        <!-- Card 2 -->
-        <div class="card" style="width: 20rem; margin-right:2rem; margin-left:2rem">
-          <img src="assets/images/Perabuds.png" class="card-img-top" alt="Altro">
-          <div class="card-body text-center">
-            <h5 class="card-title fw-bold">PERABUDS</h5>
-            <p class="card-text">La custodia ricarica gli auricolari quando non sono in uso. Questi PeraPods sono ideali per un'esperienza di ascolto musicale senza l'ingombro dei fili, per effettuare chiamate in vivavoce o per interagire con assistenti vocali, offrendo massima libertà di movimento.</p>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="card" style="width: 20rem; margin-right:2rem; margin-left:2rem">
-          <img src="assets/images/Perawatch.png" class="card-img-top" alt="Altro">
-          <div class="card-body text-center">
-            <h5 class="card-title fw-bold">PERAWATCH</h5>
-            <p class="card-text">Uno smartwatch dal design moderno e funzionale. Questo PeraWatch è un compagno ideale per chi desidera tenere sotto controllo la propria salute e il fitness, oltre a ricevere notifiche e gestire alcune funzioni dello smartphone direttamente dal polso.</p>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="card" style="width: 20rem; margin-right:2rem; margin-left:2rem">
-          <img src="assets/images/Peraphones.png" class="card-img-top" alt="Altro">
-          <div class="card-body text-center">
-            <h5 class="card-title fw-bold">PERAPHONES</h5>
-            <p class="card-text">Questo tipo di cuffie è progettato per offrire un'esperienza audio più immersiva e avvolgente, spesso con una migliore isolamento dal rumore esterno, rendendole perfette per gli amanti della musica, per i viaggi o per concentrarsi in ambienti rumorosi.</p>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
-  <!-- CONTROLLI -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselPeraphone" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon bg-dark rounded-circle"></span>
+  <!-- ◀▶ Controlli -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#peraphoneCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon custom-arrow" aria-hidden="true"></span>
+    <span class="visually-hidden">Precedente</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselPeraphone" data-bs-slide="next">
-    <span class="carousel-control-next-icon bg-dark rounded-circle"></span>
+  <button class="carousel-control-next" type="button" data-bs-target="#peraphoneCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon custom-arrow" aria-hidden="true"></span>
+    <span class="visually-hidden">Successivo</span>
   </button>
 </div>
+<!-- 🔁 Fine Carousel -->
+
+
+<!-- 🔁 Fine Slide Carousel -->
