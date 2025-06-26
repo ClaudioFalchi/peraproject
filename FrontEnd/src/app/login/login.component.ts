@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router'; // <--- aggiungi questa importazione
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,11 @@ export class LoginComponent {
   errorMessage: string = '';
   successMessage: string = '';
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router // <--- aggiungi qui
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
@@ -38,7 +43,7 @@ export class LoginComponent {
         localStorage.setItem('token', res.token);
         this.successMessage = 'Accesso effettuato con successo!';
         this.errorMessage = '';
-        // Puoi reindirizzare qui se vuoi
+        this.router.navigate(['/']); // <--- reindirizza alla home
       },
       error: () => {
         this.errorMessage = 'Email o password non corretti.';

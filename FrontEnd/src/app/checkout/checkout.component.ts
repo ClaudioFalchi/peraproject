@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { OrderService } from '../order.service'; // <-- importa il servizio
+import { OrderService } from '../order.service';
+import { CartService } from '../cart.service'; // importa il servizio carrello
 
 @Component({
   selector: 'app-checkout',
@@ -10,12 +11,13 @@ import { OrderService } from '../order.service'; // <-- importa il servizio
 })
 export class CheckoutComponent implements OnInit {
   checkoutForm!: FormGroup;
-  totalPrice: number = 49.90; // <-- Inserisci il prezzo totale corretto
+  totalPrice: number = 0; // inizializza a 0
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private orderService: OrderService // <-- aggiungi qui
+    private orderService: OrderService,
+    private cartService: CartService // aggiungi qui
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +34,16 @@ export class CheckoutComponent implements OnInit {
       nomeCarta: ['', [Validators.required]],
       scadenza: ['', [Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/)]],
       cvv: ['', [Validators.required, Validators.pattern(/^\d{3,4}$/)]]
+    });
+
+    // Recupera il totale reale dal carrello
+    this.cartService.getCart().subscribe({
+      next: (cart) => {
+        this.totalPrice = cart.total || 0;
+      },
+      error: () => {
+        this.totalPrice = 0;
+      }
     });
   }
 
