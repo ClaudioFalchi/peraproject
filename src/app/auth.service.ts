@@ -26,4 +26,16 @@ export class AuthService {
     });
     return this.http.post(this.loginUrl, credentials, { headers });
   }
+
+  get userName(): string | null {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      // Usa solo il campo 'name' (o quello che contiene il nome utente)
+      return payload.name || null;
+    } catch {
+      return null;
+    }
+  }
 }

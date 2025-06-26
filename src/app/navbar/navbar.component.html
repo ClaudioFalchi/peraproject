@@ -33,22 +33,28 @@
           </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isLoggedIn">
           <a class="nav-link fw-medium text-dark px-2" routerLink="/login">Login</a>
         </li>
-
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isLoggedIn">
           <button 
             class="btn rounded-pill w-100" 
             style="background-color: #1f2937; border-color: #1f2937; color: white;"
             routerLink="/register"> 
-            
             Registrati
           </button>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <span class="nav-link fw-medium text-dark px-2 d-flex align-items-center">
+            <i class="bi bi-person-circle me-1"></i>
+            {{ userName }}
+            <button class="btn btn-link p-0 ms-3 align-self-center" (click)="logout()" title="Logout">
+              <i class="bi bi-box-arrow-right fs-5 text-dark"></i>
+            </button>
+          </span>
         </li>
 
       </ul>
     </div>
   </div>
 </nav>
- 

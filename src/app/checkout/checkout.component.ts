@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { OrderService } from '../order.service'; // <-- importa il servizio
 
 @Component({
   selector: 'app-checkout',
@@ -11,7 +12,11 @@ export class CheckoutComponent implements OnInit {
   checkoutForm!: FormGroup;
   totalPrice: number = 49.90; // <-- Inserisci il prezzo totale corretto
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private orderService: OrderService // <-- aggiungi qui
+  ) {}
 
   ngOnInit(): void {
     this.checkoutForm = this.fb.group({
@@ -40,9 +45,21 @@ export class CheckoutComponent implements OnInit {
       return;
     }
 
-    console.log('Dati inviati:', this.checkoutForm.value);
+    // Prepara i dati dell'ordine
+    const order = {
+      orderId: 0, // Il backend genererà l'id
+      orderDate: new Date().toISOString(),
+      total: this.totalPrice,
+      message: 'Ordine effettuato dal checkout'
+    };
 
-    // Simula un salvataggio, poi reindirizza alla pagina di conferma
-    this.router.navigate(['/conferma-ordine']);
+    this.orderService.checkout(order).subscribe({
+      next: () => {
+        this.router.navigate(['/conferma-ordine']);
+      },
+      error: () => {
+        alert('Errore durante il checkout.');
+      }
+    });
   }
 }

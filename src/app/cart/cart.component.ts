@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
 
-interface Prodotto {
-  nome: string;
-  prezzo: number;
-  quantita: number;
+interface CartItem {
+  id: number;
+  productId: number;
+  productName: string;
+  productPrice: number;
+  productImageUrl: string;
+  quantity: number;
+  subtotal: number;
 }
 
 @Component({
@@ -11,24 +16,31 @@ interface Prodotto {
   templateUrl: './cart.component.html',
 })
 export class CartComponent implements OnInit {
-  carrello: Prodotto[] = []; // array di prodotti
+  carrello: CartItem[] = [];
+  total: number = 0;
 
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    // Esempio: carica prodotti (da un servizio o localStorage)
-    this.carrello = this.getProdottiCarrello(); // implementalo tu o mock
+    this.loadCart();
   }
 
-  get totalPrice(): number {
-    return this.carrello.reduce(
-      (totale, prodotto) => totale + prodotto.prezzo * prodotto.quantita,
-      0
-    );
+  loadCart() {
+    this.cartService.getCart().subscribe((cart) => {
+      this.carrello = cart.items;
+      this.total = cart.total;
+    });
   }
 
-  getProdottiCarrello(): Prodotto[] {
-    // TODO: recupera i dati reali da un servizio o localStorage
-    return []; // per ora vuoto
+  removeItem(productId: number) {
+    this.cartService.removeFromCart(productId).subscribe({
+      next: () => {
+        this.loadCart();
+      },
+      error: (err) => {
+        // Optionally reload anyway:
+        this.loadCart();
+      },
+    });
   }
 }
