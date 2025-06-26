@@ -107,7 +107,7 @@ export class ShopComponent {
     },
     {
       imageUrl: 'assets/images/Peraphones2.png',
-      title: 'Peraphones',
+      title: 'Perapods pro',
       description: `
         <ul>
           <li>Materiale in silicone premium</li>

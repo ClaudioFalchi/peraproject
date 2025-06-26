@@ -14,6 +14,8 @@ import { ConfirmOrdineComponent } from './confirm-ordine/confirm-ordine.componen
 import { NavbarComponent } from './navbar/navbar.component';
 import { ShopComponent } from './shop/shop.component';
 import { FooterComponent } from './footer/footer.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -34,9 +36,16 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor, // Assicurati di importare AuthInterceptor dal percorso corretto
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

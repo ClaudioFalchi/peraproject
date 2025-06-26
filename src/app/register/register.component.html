@@ -6,7 +6,7 @@
       <small class="text-muted">Compila i campi per creare il tuo account</small>
     </div>
 
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
       <!-- Nome -->
       <div class="mb-3">
         <label for="nome" class="form-label fw-semibold">Nome</label>
@@ -17,6 +17,7 @@
           class="form-control rounded-pill"
           [class.is-invalid]="submitted && f['nome'].invalid"
           placeholder="Inserisci il tuo nome"
+          [ngModel]="nome"
         />
         <div *ngIf="submitted && f['nome'].errors" class="invalid-feedback ps-3">
           Nome è obbligatorio.
@@ -33,6 +34,7 @@
           class="form-control rounded-pill"
           [class.is-invalid]="submitted && f['email'].invalid"
           placeholder="esempio@dominio.com"
+          [ngModel]="email"
         />
         <div *ngIf="submitted && f['email'].errors" class="invalid-feedback ps-3">
           <div *ngIf="f['email'].errors?.['required']">Email obbligatoria.</div>
@@ -50,6 +52,7 @@
           class="form-control rounded-pill"
           [class.is-invalid]="submitted && f['password'].invalid"
           placeholder="Minimo 8 caratteri"
+          [ngModel]="password"
         />
         <div *ngIf="submitted && f['password'].errors" class="invalid-feedback ps-3">
           <div *ngIf="f['password'].errors?.['required']">Password obbligatoria.</div>
