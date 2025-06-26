@@ -45,12 +45,17 @@
 
       <!-- Pulsante di accesso -->
       <button 
-  class="btn w-100" 
-  style="background-color: #1f2937; border-color: #1f2937; color: white;"
->
-  Accedi
-</button>
+        class="btn w-100" 
+        style="background-color: #1f2937; border-color: #1f2937; color: white;"
+      >
+        Accedi
+      </button>
     </form>
+
+    <!-- Messaggio successo -->
+    <ngb-alert *ngIf="successMessage" type="success" [dismissible]="false" class="mt-3">
+      {{ successMessage }}
+    </ngb-alert>
 
     <!-- Messaggio errore -->
     <div *ngIf="errorMessage" class="alert alert-danger mt-3">

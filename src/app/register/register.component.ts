@@ -1,8 +1,7 @@
-import { Component, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../service/auth.service';
+import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-register',
@@ -10,27 +9,18 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-userData: any;
-onSubmit() {
-throw new Error('Method not implemented.');
-}
   registerForm: FormGroup;
   submitted = false;
   successMessage = '';
   errorMessage = '';
-  email = '';
-  password = '';
-  nome = '';
-  authService: AuthService;
 
-  constructor(private fb: FormBuilder, http: HttpClient) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.registerForm = this.fb.group({
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
-      confermaPassword: ['', Validators.required] 
+      confermaPassword: ['', Validators.required]
     }, { validators: this.passwordMatchValidator });
-    this.authService = new AuthService(http);
   }
 
   get f() {
@@ -44,14 +34,31 @@ throw new Error('Method not implemented.');
   }
 
   onRegister() {
-    this.authService.register({name: this.nome, email: this.email, password: this.password })
-      .subscribe({
-        next: (res:any) => {
-          console.log('register riuscito:', res);
-          localStorage.setItem('token', res.token); // Salva il JWT per usi futuri
-        },
-        
-      });
-  }
+    this.submitted = true;
+    this.successMessage = '';
+    this.errorMessage = '';
 
+    if (this.registerForm.invalid) {
+      return;
+    }
+
+    const userData = {
+      name: this.registerForm.value.nome,
+      email: this.registerForm.value.email,
+      password: this.registerForm.value.password
+    };
+
+    this.authService.register(userData).subscribe(
+      response => {
+        this.successMessage = 'Registrazione avvenuta con successo!';
+        this.errorMessage = '';
+        this.registerForm.reset();
+        this.submitted = false;
+      },
+      error => {
+        this.errorMessage = error.error?.message || 'Errore durante la registrazione.';
+        this.successMessage = '';
+      }
+    );
+  }
 }
