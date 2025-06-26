@@ -34,6 +34,12 @@ export class ShopComponent implements OnInit {
   }
 
   onBuy(product: Product) {
+    // Controlla se l'utente è loggato (presenza del token)
+    if (!localStorage.getItem('token')) {
+      alert('Devi effettuare il login per acquistare un prodotto.');
+      return;
+    }
+
     if (product.orderQty > 0) {
       this.cartService.addToCart(product.id, product.orderQty).subscribe({
         next: () => {
