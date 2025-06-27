@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+.btn,
+button {
+  transition: filter 0.2s;
+}
+
+.btn:hover,
+button:hover {
+  filter: brightness(0.85);
+}
