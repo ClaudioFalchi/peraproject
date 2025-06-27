@@ -2,7 +2,7 @@
 
 ![PeraPhone-logo](https://github.com/user-attachments/assets/17f646a5-c2fa-46d0-bd3b-1649416cf25d)
 ## 📝 Project Description
-Complete e-commerce platform for selling PeraPhone devices and related accessories. Developed in collaboration with **RJC Soft S.R.L.** ([www.rjcsoft.it](https://www.rjcsoft.it)) as part of the PCTO (Path for Transversal Skills and Orientation) program during the 2024/2025 academic year.
+An E-Commerce platform to sell PeraPhone devices and related accessories. Developed with the collaboration of **RJC Soft S.R.L.** ([www.rjcsoft.it](https://www.rjcsoft.it)) as part of the PCTO (Path for Transversal Skills and Orientation) program during the 2024/2025 academic year.
 
 📍 **Company Headquarters:**  
 Via di Gello 17, 56123 Pisa, Italy
