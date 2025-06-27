@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ export class RegisterComponent {
   successMessage = '';
   errorMessage = '';
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.registerForm = this.fb.group({
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -54,6 +55,9 @@ export class RegisterComponent {
         this.errorMessage = '';
         this.registerForm.reset();
         this.submitted = false;
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 1500); // attende 1.5 secondi prima di reindirizzare
       },
       error => {
         this.errorMessage = error.error?.message || 'Errore durante la registrazione.';
