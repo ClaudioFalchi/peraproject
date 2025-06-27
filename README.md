@@ -22,7 +22,7 @@ Via di Gello 17, 56123 Pisa, Italy
 👨‍🏫 **School PCTO Coordinator:** Prof. Marco Volpe
 
 ## 👥 Development Team
-### 🎓 Students - Class 4AI/4CI I.T.I. G. Marconi
+### 🎓 Students - Class 4AI/4CI I.T.I.S. G. Marconi Pontedera 
 - Claudio Falchi
 - Gabriele Cerbioni 
 - Sheila Sulis
