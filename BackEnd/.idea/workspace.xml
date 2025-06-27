@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95fd1b45-46d2-47e3-adc2-6dbf31bb16c5" name="Changes" comment="" />
+    <list default="true" id="95fd1b45-46d2-47e3-adc2-6dbf31bb16c5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,15 +43,16 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.PeraphoneMarconiApplication.executor": "Run",
-    "Application.Unnamed.executor": "Run",
+    "Application.Unnamed.executor": "Debug",
     "Maven. [install].executor": "Run",
     "Maven.peraphone-marconi [install,-e].executor": "Run",
     "Maven.peraphone-marconi [install].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/claud/Desktop/mi sono rotto il cazzo eplodi/peraproject/BackEnd",
+    "last_opened_file_path": "C:/Users/gabri/OneDrive/Desktop/Peraphone/peraproject/BackEnd",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -71,7 +74,7 @@
   <component name="RunManager" selected="Application.Unnamed">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.marconi.peraphone_marconi.PeraphoneMarconiApplication" />
-      <module name="peraphone-marconi" />
+      <module name="BackEnd" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -103,6 +106,7 @@
       <workItem from="1750923176674" duration="9751000" />
       <workItem from="1750940543512" duration="4766000" />
       <workItem from="1750945690612" duration="194000" />
+      <workItem from="1751008988187" duration="178000" />
     </task>
     <servers />
   </component>
