@@ -21,7 +21,9 @@ Complete e-commerce platform for selling PeraPhone devices and related accessori
 - Penelope Ciulli
 - Christian Zitola
 
-### 🏢 Corporate Tutors - RJC SOFT S.R.L.
+### 🏢 Corporate Tutors - RJC Soft S.R.L.
+**Company Address:** Via di Gello 17, 56123 Pisa, Italy
+**Website:** https://www.rjcsoft.it/
 - **Andrea Cottone** (Project Manager)
 - Michele Caporrino
 - Francesco Vargiu
