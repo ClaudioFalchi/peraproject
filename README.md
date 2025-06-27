@@ -1,9 +1,11 @@
 # 🛍️ PeraPhone E-Commerce Platform
 
 ![PeraPhone-logo](https://github.com/user-attachments/assets/17f646a5-c2fa-46d0-bd3b-1649416cf25d)
-
 ## 📝 Project Description
-Complete e-commerce platform for selling PeraPhone devices and related accessories. Developed as part of the PCTO (Path for Transversal Skills and Orientation) program during the 2024/2025 academic year.
+Complete e-commerce platform for selling PeraPhone devices and related accessories. Developed in collaboration with **RJC Soft S.R.L.** ([www.rjcsoft.it](https://www.rjcsoft.it)) as part of the PCTO (Path for Transversal Skills and Orientation) program during the 2024/2025 academic year.
+
+📍 **Company Headquarters:**  
+Via di Gello 17, 56123 Pisa, Italy
 
 **Key Features**:
 - Complete product catalog
@@ -21,19 +23,23 @@ Complete e-commerce platform for selling PeraPhone devices and related accessori
 - Penelope Ciulli
 - Christian Zitola
 
-### 🏢 Corporate Tutors - RJC Soft S.R.L.
-   **Company Address:** Via di Gello 17, 56123 Pisa, Italy
-   **Website:** https://www.rjcsoft.it/
+### 🏢 Corporate Partner
+**RJC Soft S.R.L.**  
+📌 Via di Gello 17, 56123 Pisa  
+🌐 [www.rjcsoft.it](https://www.rjcsoft.it)
+
+**Project Tutors**:
 - **Andrea Cottone** (Project Manager)
 - Michele Caporrino
 - Francesco Vargiu
 - Leonardo Gherardi
+- Erika Valentini
 
 ## 🛠️ Technologies Used
 | Frontend | Backend | Tools |
 |----------|---------|-------|
-| HTML5    | Node.js | IntelliJ IDEA |
-| CSS3     | MySQL | GitHub |
+| HTML    | Node.js | IntelliJ IDEA |
+| CSS     | MySQL | GitHub |
 | TypeScript | Spring Boot | VS Code |
 | Bootstrap |         |       |
 | Angular |         |       |
